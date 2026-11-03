@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a095f">
+  <title>Sign in | OLOPSC Student Clearance System</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <aside class="login-aside">
+      <a class="brand brand-light" href="index.html"><span><img src="assets/images/1000131869.webp" alt="OLOPSC Logo" class="brand-mark"></span><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a>
+      <div class="login-aside-copy">
+        <span class="eyebrow eyebrow-light">OLOPSC STUDENT CLEARANCE SYSTEM</span>
+        <h1>Your college journey,<br>one step <em>closer.</em></h1>
+        <img class="aside-illustration" src="assets/images/IMG_20260504_155703.jpeg" alt="College illustration" aria-hidden="true">
+        <p>Welcome to the OLOPSC Student Clearance Portal. Manage your clearance requirements efficiently and conveniently.</p>
+      </div>
+      <div class="aside-foot">A smoother way forward <span>✳</span></div>
+    </aside>
+    <section class="login-main">
+      <div class="login-box">
+        <div class="mobile-brand"><a class="brand" href="index.html"><span class="brand-mark">O</span><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a></div>
+        <div class="login-heading"><span class="eyebrow">OLOPSC Student Clearance System</span><h2>Welcome to your portal</h2><p>Sign in to manage your clearance requirements.</p></div>
+        <div id="login-notice" class="notice" role="alert" hidden></div>
+        <form id="login-form" class="form-stack">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" placeholder="e.g. student01" required>
+          <label for="password">Password</label>
+          <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" class="password-toggle" aria-label="Show password">Show</button></div>
+          <button class="button button-primary button-full" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="demo-accounts">
+          <span class="eyebrow">DEMO ACCOUNTS</span>
+          <div><b>Student</b><span>student01</span><span>student123</span><button type="button" data-fill-user="student01" data-fill-pass="student123">Use</button></div>
+          <div><b>Admin</b><span>admin</span><span>admin123</span><button type="button" data-fill-user="admin" data-fill-pass="admin123">Use</button></div>
+        </div>
+        <a class="back-link" href="index.html">← Back to home</a>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
