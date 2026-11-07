@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a095f">
+  <title>Sign in | OLOPSC Student Clearance System</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <aside class="login-aside">
+      <a class="brand brand-light" href="index.html"><span><img src="assets/images/1000131869.webp" alt="OLOPSC Logo" class="brand-mark"></span><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a>
+      <div class="login-aside-copy">
+        <span class="eyebrow eyebrow-light">OLOPSC STUDENT CLEARANCE SYSTEM</span>
+        <h1>Your college journey,<br>one step <em>closer.</em></h1>
+        <img class="aside-illustration" src="assets/images/IMG_20260504_155703.jpeg" alt="College illustration" aria-hidden="true">
+        <p>Welcome to the OLOPSC Student Clearance Portal. Manage your clearance requirements efficiently and conveniently.</p>
+      </div>
+      <div class="aside-foot">A smoother way forward <span>✳</span></div>
+    </aside>
+    <section class="login-main">
+      <div class="login-box">
+        <div class="mobile-brand"><a class="brand" href="index.html"><span class="brand-mark">O</span><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a></div>
+        <div class="login-heading"><span class="eyebrow">OLOPSC Student Clearance System</span><h2 data-auth-heading>Welcome to your portal</h2><p data-auth-copy>Sign in to manage your clearance requirements.</p></div>
+        <div id="login-notice" class="notice" role="alert" hidden></div>
+        <form id="login-form" class="form-stack">
+          <label for="email">School email</label>
+          <input id="email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="you@school.edu.ph" required>
+          <label for="password">Password</label>
+          <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" maxlength="72" placeholder="Enter your password" required><button type="button" class="password-toggle" aria-label="Show password">Show</button></div>
+          <button class="button button-primary button-full" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </form>
+        <form id="register-form" class="form-stack" hidden>
+          <label for="register-email">School email</label>
+          <input id="register-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@school.edu.ph" required>
+          <label for="invite-token">School registration invitation</label>
+          <input id="invite-token" name="invitationToken" type="text" inputmode="text" autocomplete="off" minlength="64" maxlength="64" pattern="[a-fA-F0-9]{64}" aria-describedby="invite-help" placeholder="64-character invitation token" required>
+          <small id="invite-help" class="field-note">Get a one-time registration token from Student Services.</small>
+          <label for="register-password">Password</label>
+          <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+          <label for="confirm-password">Confirm password</label>
+          <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+          <button class="button button-primary button-full" type="submit">Create student account <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="auth-switch"><span data-auth-switch-copy>New student?</span> <button type="button" class="text-link" data-auth-switch>Create an account</button></p>
+        <a class="back-link" href="index.html">← Back to home</a>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
