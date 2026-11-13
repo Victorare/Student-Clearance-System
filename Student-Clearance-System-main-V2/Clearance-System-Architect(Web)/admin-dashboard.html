@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a095f">
+  <title>Administration | OLOPSC Student Clearance System</title>
+  <link rel="icon" type="image/png" href="assets/images/olopsc-crest.png">
+  <link rel="stylesheet" href="css/style.css?v=olopsc-crest">
+</head>
+<body data-requires-role="staff">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="admin-dashboard.html"><img src="assets/images/olopsc-crest.png" alt="" class="brand-mark"><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a>
+      <div class="sidebar-label">ADMINISTRATION</div>
+      <nav class="side-nav" aria-label="Administrator navigation"><a class="nav-link active" href="admin-dashboard.html"><span>▦</span> Overview</a><a class="nav-link" href="#requests"><span>✓</span> Clearance requests</a></nav>
+      <div class="sidebar-bottom"><div class="help-card"><span>✳</span><b>Admin workspace</b><p>Review department submissions and keep student records up to date.</p></div><button class="nav-link logout-button" data-logout><span>↪</span> Sign out</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="menu-toggle" data-menu-toggle aria-label="Open navigation">☰</button><div class="breadcrumb">Administration <span>/</span> Overview</div><div class="top-actions"><span class="top-date" data-datetime></span><button class="icon-button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">◐</button><div class="user-chip"><span class="user-avatar admin-avatar" data-avatar>AD</span><span><b data-user-name>Staff member</b><small data-user-role>Staff</small></span></div></div></header>
+      <div class="page-content">
+        <section class="welcome-row"><div><span class="eyebrow">ADMIN WORKSPACE</span><h1>Clearance overview <span class="wave">✳</span></h1><p>Review student submissions and keep every department moving.</p></div><button class="button button-outline" type="button" data-print>Print report <span>↗</span></button></section>
+        <section class="stat-grid admin-stat-grid">
+          <article class="stat-card"><div class="stat-top"><span>Students in scope</span><span class="stat-icon icon-blue">◎</span></div><div class="stat-number"><b data-admin-students>0</b><span class="stat-helper">accessible records</span></div><small class="stat-footnote">Limited by your staff role</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Requests to review</span><span class="stat-icon icon-amber">◷</span></div><div class="stat-number"><b data-admin-pending>0</b><span class="stat-helper">pending</span></div><small class="stat-footnote">Awaiting a decision</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Approved requests</span><span class="stat-icon icon-green">✓</span></div><div class="stat-number"><b data-admin-approved>0</b><span class="stat-helper">approved</span></div><small class="stat-footnote">Across all departments</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Needs resubmission</span><span class="stat-icon icon-red">!</span></div><div class="stat-number"><b data-admin-rejected>0</b><span class="stat-helper">rejected</span></div><small class="stat-footnote">Students to follow up</small></article>
+        </section>
+        <section class="card clearance-chart-card" aria-labelledby="clearance-chart-heading"><div class="section-heading"><div><span class="eyebrow">LIVE REQUEST DATA</span><h2 id="clearance-chart-heading">Request status</h2><p data-clearance-scope>Current proportions across requests available to your role.</p></div></div><div class="clearance-chart-content" data-clearance-chart aria-live="polite"></div></section>
+        <section class="card admin-table-card" data-audit-panel hidden><div class="section-heading"><div><span class="eyebrow">DEAN ACCESS · READ ONLY</span><h2>Audit log</h2><p>Review decisions and feedback recorded for clearance requests.</p></div></div><div class="table-wrap"><table><thead><tr><th>ACTOR</th><th>STUDENT</th><th>DEPARTMENT</th><th>DECISION</th><th>FEEDBACK RECORDED</th><th>TIME</th></tr></thead><tbody data-audit-rows></tbody></table></div><div class="empty-state" data-audit-empty hidden>No review decisions have been recorded.</div></section>
+        <div id="admin-notice" class="notice" role="status" hidden></div><section class="card admin-table-card" id="requests"><div class="section-heading admin-heading"><div><span class="eyebrow">STUDENT RECORDS</span><h2>Clearance requests</h2><p>Review and update submissions department by department.</p></div><div class="table-tools"><label class="search-field"><span>⌕</span><input type="search" data-admin-search placeholder="Search students..." aria-label="Search students"></label><button class="button button-outline button-small" data-print>Print report</button></div></div><div class="filter-row"><span>Filter by status:</span><div class="filter-pills"><button class="filter-pill active" data-filter="all">All <b data-filter-all>0</b></button><button class="filter-pill" data-filter="pending">Pending</button><button class="filter-pill" data-filter="approved">Approved</button><button class="filter-pill" data-filter="rejected">Rejected</button></div></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>DEPARTMENT</th><th>SUBMITTED</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody data-request-rows></tbody></table></div><div class="empty-state" data-admin-empty hidden>No clearance requests match your search.</div><div class="table-foot"><span data-table-count>Showing 0 requests</span><span>Records are securely stored in the OLOPSC project.</span></div></section>
+        <footer class="app-footer">Our Lady of Perpetual Succor College <span>·</span> Administration <span data-year></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="mobile-overlay" data-mobile-overlay></div>
+  <div class="modal-backdrop" data-reject-modal hidden><section class="reject-dialog" role="dialog" aria-modal="true" aria-labelledby="reject-title"><button class="modal-close" type="button" data-cancel-rejection aria-label="Cancel rejection">×</button><span class="eyebrow">DEPARTMENT DECISION</span><h2 id="reject-title">Request a change</h2><p>Tell the student what they need to do before resubmitting.</p><div data-reject-notice class="notice" role="alert" hidden></div><form data-reject-form><label for="rejection-note">Feedback to student</label><textarea id="rejection-note" rows="4" maxlength="240" required placeholder="For example: Please submit the completed records form."></textarea><div class="modal-actions"><button class="button button-outline" type="button" data-cancel-rejection>Cancel</button><button class="button button-primary" type="submit">Reject request</button></div></form></section></div>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
