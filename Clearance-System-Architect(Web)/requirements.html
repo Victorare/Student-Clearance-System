@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a095f">
+  <title>Requirements | OLOPSC Student Clearance System</title>
+  <script src="js/theme-bootstrap.js"></script>
+  <link rel="icon" type="image/png" href="assets/images/olopsc-crest.png">
+  <link rel="stylesheet" href="css/style.css?v=olopsc-features-v10">
+</head>
+<body data-requires-role="staff">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="admin-dashboard.html"><img src="assets/images/olopsc-crest.png" alt="" class="brand-mark"><span>OLOPSC <small>Our Lady of Perpetual Succor College</small></span></a>
+      <div class="sidebar-label">ADMINISTRATION</div>
+      <nav class="side-nav" aria-label="Administrator navigation">
+        <a class="nav-link" href="admin-dashboard.html"><span>▦</span> Overview</a>
+        <a class="nav-link" href="admin-dashboard.html#requests"><span>✓</span> Clearance requests</a>
+        <a class="nav-link active" href="requirements.html" aria-current="page"><span>☷</span> Requirements</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><span>✳</span><b>Admin workspace</b><p>Keep department clearance requirements up to date.</p></div><button class="nav-link logout-button" data-logout><span>↪</span> Sign out</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="menu-toggle" data-menu-toggle aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><div class="breadcrumb">Administration <span>/</span> Requirements</div><div class="top-actions"><span class="top-date" data-datetime></span><button class="icon-button" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme">◐</button><button class="icon-button" data-settings-open aria-label="Open settings" title="Settings">⚙</button><div class="user-chip"><span class="user-avatar admin-avatar" data-avatar>AD</span><span><b data-user-name>Staff member</b><small data-user-role>Staff</small></span></div></div></header>
+      <div class="page-content">
+        <section class="welcome-row"><div><span class="eyebrow">ADMIN WORKSPACE</span><h1>Department requirements</h1><p>Manage the checklist students see before submitting their clearance request.</p></div></section>
+        <div id="requirements-notice" class="notice" role="status" hidden></div>
+        <section class="card requirements-manager-card">
+          <div class="section-heading requirements-manager-heading">
+            <div><span class="eyebrow">CLEARANCE CHECKLIST</span><h2 data-requirements-department-title>Requirements</h2><p data-requirements-access></p></div>
+            <div class="requirements-manager-tools">
+              <label class="requirements-department-field" data-department-field hidden><span>Department</span><select data-requirements-department aria-label="Select department"></select></label>
+              <button class="button button-outline button-small" type="button" data-discard-requirements hidden>Discard</button>
+              <button class="button button-primary button-small" type="button" data-save-requirements disabled>Save changes</button>
+            </div>
+          </div>
+          <div class="requirement-manager-list" data-requirement-manager-list aria-live="polite"></div>
+          <div class="requirements-manager-footer"><span data-requirement-count></span><button class="button button-outline button-small" type="button" data-add-requirement hidden>＋ Add requirement</button></div>
+        </section>
+        <footer class="app-footer">Our Lady of Perpetual Succor College <span>·</span> Administration <span data-year></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="mobile-overlay" data-mobile-overlay></div>
+
+  <div class="modal-backdrop" data-requirement-editor-backdrop hidden>
+    <section class="reject-dialog" role="dialog" aria-modal="true" aria-labelledby="requirement-editor-title">
+      <button class="modal-close" type="button" data-close-requirement-editor aria-label="Close editor">×</button>
+      <span class="eyebrow">REQUIREMENT</span>
+      <h2 id="requirement-editor-title">Add requirement</h2>
+      <p>Students will see this item in the selected department checklist.</p>
+      <form class="form-stack" data-requirement-editor-form>
+        <label for="requirement-editor-input">Requirement</label>
+        <input id="requirement-editor-input" type="text" maxlength="250" required>
+        <div class="modal-actions"><button class="button button-outline" type="button" data-close-requirement-editor>Cancel</button><button class="button button-primary" type="submit">Save item</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" data-requirement-delete-backdrop hidden>
+    <section class="reject-dialog" role="dialog" aria-modal="true" aria-labelledby="requirement-delete-title">
+      <button class="modal-close" type="button" data-cancel-requirement-delete aria-label="Close confirmation">×</button>
+      <span class="eyebrow">CONFIRM CHANGE</span>
+      <h2 id="requirement-delete-title">Delete requirement?</h2>
+      <p data-requirement-delete-copy></p>
+      <div class="modal-actions"><button class="button button-outline" type="button" data-cancel-requirement-delete>Keep requirement</button><button class="button button-primary" type="button" data-confirm-requirement-delete>Delete</button></div>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js?v=olopsc-auth-v2"></script>
+  <script type="module" src="js/requirements.js?v=olopsc-v6"></script>
+</body>
+</html>
